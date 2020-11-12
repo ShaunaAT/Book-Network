@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content-section">
+    <div class="media">
+      <div class="media-body">
+        <a href="{% url 'create_group' %}" class="account-heading">Create A Group</a>
+        <p class="text-secondary">Make a group and invite friends to share what you've all been reading!</p>
+      </div>
+    </div>
+    <!-- FORM HERE -->
+  </div>
+  <div class="content-section">
+    <div class="media">
+      <div class="media-body">
+        <a href="{% url 'join_group' %}" class="account-heading" >Join A Group</a>
+        <p class="text-secondary">Know a group you want to join? Just enter the group name and password to start sharing.</p>
+      </div>
+    </div>
+    <!-- FORM HERE -->
+  </div>
+
+{% endblock %}

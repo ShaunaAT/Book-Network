@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="content-section">
+  <div class="media">
+    <div class="media-body">
+      <a href="{% url 'create_post' group.id %}" class="text-secondary">Make a new post</a>
+    </div>
+  </div>
+  <!-- FORM HERE -->
+</div>
+
+{% for post in posts %}
+<article class="media content-section">
+  <img class="rounded-circle article-img" src="{{ post.user.profile.image.url }}">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="{% url 'post-detail' post.id %}">{{ post.user.username }}</a>
+    </div>
+    <p class="article-content">{{ post.description }}</p>
+  </div>
+</article>
+
+{% endfor %}
+
+{% endblock %}

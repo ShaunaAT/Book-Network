@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Search form -->
+<form method = 'POST'>
+<div class="input-group mb-3">
+  {% csrf_token %}
+    <input class="form-control form-control-lg text-muted" 
+    type="text" placeholder="Search" aria-label="Search" name="search">
+</div>
+</form>
+<p> </p>
+{% for book in books %}
+<div class="content-section">
+  <div class="media">
+    <img class="mr-3" src="{{ book.image_url }}">
+    <div class="media-body">
+      <a class="article-title" href="{% url 'book-detail' book.id %}">{{ book.title }}</a>
+      <p class="text-secondary">{{ book.author }}</p> 
+    </div>
+  </div>
+  <!-- FORM HERE -->
+</div>
+{% endfor %}
+{% endblock %}

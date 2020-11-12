@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="content-section">
+    <div class="media">
+      <img class="mr-3" src="{{ object.image_url }}">
+      <div class="media-body">
+        <a class="article-title" >{{ object.title }}</a>
+        <p class="text-secondary">{{ object.author }}</p>
+      </div>
+    </div>
+    <!-- FORM HERE -->
+</div>
+{% if user.is_authenticated %}
+<div class="content-section">
+  <div class="media">
+    <div class="media-body">
+      <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" name="add_library" class="btn btn-secondary">Add to Library</button>
+      </form>
+  </div>
+  </div>
+</div>
+{% endif %}
+
+{% endblock %}

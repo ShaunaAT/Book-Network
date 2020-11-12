@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Home</title>
+{% endblock %}
+
+{% block content %} 
+<h>My Groups:</h>
+{% for item in groups %}
+<div class="content-section">
+    <div class="media-body">
+      <a href="{% url 'group' item.id %}" class="article-title">{{ item.group_name }}</a>
+    </div>
+  <!-- FORM HERE -->
+</div>
+{% endfor %}
+{% endblock %}

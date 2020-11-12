@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+<div class="content-section">
+    
+    <div class="media-body">
+      <h2 class="account-heading">My Library</h2>
+      <p class="text-secondary"> Create a virtual library of the books you've read </p>
+    </div>
+  <!-- FORM HERE -->
+</div>
+<p> </p>
+{% for item in library %}
+<div class="content-section">
+  <div class="media">
+    <img class="mr-3" src="{{ item.book.image_url }}">
+    <div class="media-body">
+      <a class="article-title" >{{ item.book.title }}</a>
+      <p class="text-secondary">{{ item.book.author }}</p> 
+    </div>
+  </div>
+  <!-- FORM HERE -->
+</div>
+{% endfor %}
+
+{% endblock %}
